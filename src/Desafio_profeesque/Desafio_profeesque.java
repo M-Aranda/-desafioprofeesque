@@ -12,7 +12,6 @@ public class Desafio_profeesque {
         
         Scanner respuesta = new Scanner(System.in);
         
-        
         int eleccion;
         while(true){
             try {
@@ -27,16 +26,10 @@ public class Desafio_profeesque {
                 System.out.println("Debe responder 3 o 4");
             }
 }
-        
-        
-        
         Mensaje_de_inicio mensaje=new Mensaje_de_inicio();
         mensaje.mostrarMensajeDeInicio();
 
         Scanner input= new Scanner(System.in);
-
-        
-        
         int x;
         int y;
         
@@ -51,7 +44,6 @@ public class Desafio_profeesque {
                     y=Integer.parseInt(ys);
                     contador++;
                     
-                    
             } catch (Exception e) {
                 System.out.println("Debe ingresar una coordenada valida");
             }
@@ -59,12 +51,6 @@ public class Desafio_profeesque {
                 break;
             }
         }
-        
-        
-        
-        
-        
-        
     }
     
 }
