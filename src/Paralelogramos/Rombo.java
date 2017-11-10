@@ -1,15 +1,12 @@
 
 package Paralelogramos;
 
-import Figura.Figureable;
+import Figuras.Cuadrilatero;
+import Figuras.Figureable;
 
 
-public class Rombo implements Figureable{
-    
-    public double lado1;
-    public double lado2;
-    public double lado3;
-    public double lado4;
+public class Rombo extends Cuadrilatero implements Figureable{
+
 
     @Override
     public double calcularPerimetro() {

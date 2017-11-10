@@ -1,5 +1,5 @@
 
-package Figura;
+package Figuras;
 
 public interface Figureable {
     

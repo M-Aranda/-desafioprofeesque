@@ -1,14 +1,9 @@
-
 package Paralelogramos;
 
-import Figura.Figureable;
+import Figuras.Cuadrilatero;
+import Figuras.Figureable;
 
-public class Cuadrado implements Figureable {
-    
-    public double lado1;
-    public double lado2;
-    public double lado3;
-    public double lado4;
+public class Cuadrado extends Cuadrilatero implements Figureable {
 
     @Override
     public double calcularPerimetro() {
@@ -21,5 +16,5 @@ public class Cuadrado implements Figureable {
         double area = (lado1 * lado2);
         return area;
     }
-    
+
 }

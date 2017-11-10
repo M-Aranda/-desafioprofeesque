@@ -1,14 +1,12 @@
 
 package No_Paralelogramos;
 
-import Figura.Figureable;
+import Figuras.Figureable;
+import Figuras.Cuadrilatero;
 
-public class Romboide implements Figureable {
+public class Romboide extends Cuadrilatero implements Figureable {
     
-    double lado1;
-    double lado2;
-    double lado3;
-    double lado4;
+
     
 
     @Override

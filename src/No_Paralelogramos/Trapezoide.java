@@ -1,15 +1,13 @@
 
 package No_Paralelogramos;
 
-import Figura.Figureable;
+import Figuras.Cuadrilatero;
+import Figuras.Figureable;
 
 
-public class Trapezoide implements Figureable {
+public class Trapezoide extends Cuadrilatero implements Figureable {
     
-    double lado1;
-    double lado2;
-    double lado3;
-    double lado4;
+
 
     @Override
     public double calcularPerimetro() {

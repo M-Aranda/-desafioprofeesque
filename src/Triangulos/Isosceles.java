@@ -1,16 +1,16 @@
+
 package Triangulos;
 
 import Figuras.Figureable;
 import Figuras.Triangulo;
 
-public class Escaleno extends Triangulo implements Figureable {
-
+public class Isosceles extends Triangulo implements Figureable{
 
 
     @Override
     public double calcularPerimetro() {
-        double perimetro = (lado1 + lado2 + lado3);
-        return perimetro;
+        double perimetro = (lado1 + lado2 + lado3)   ;
+        return perimetro;    
     }
 
     @Override
@@ -21,5 +21,3 @@ public class Escaleno extends Triangulo implements Figureable {
 
     }
 }
-
-

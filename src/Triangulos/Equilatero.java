@@ -4,28 +4,30 @@
  * and open the template in the editor.
  */
 package Triangulos;
-import Figura.Figureable;
+
+import Figuras.Figureable;
+import Figuras.Triangulo;
+
 /**
  *
  * @author ngolott
  */
-public class Equilatero implements Figureable{
-private double lado1;
-private double lado2;
-private double lado3;
+public class Equilatero extends Triangulo implements Figureable {
+
+
 
     @Override
     public double calcularPerimetro() {
-    double perimetro = (lado1 + lado2 + lado3)   ;
-    return perimetro;
+        double perimetro = (lado1 + lado2 + lado3);
+        return perimetro;
     }
 
     @Override
     public double calcularArea() {
-       double semiperimetro = calcularPerimetro() / 2;
-       double area = semiperimetro*(semiperimetro-lado1)*(semiperimetro-lado2)*(semiperimetro-lado3);
-       double resultado = (double )Math.sqrt(area);
-       return resultado;
-    
-}
+        double semiperimetro = calcularPerimetro() / 2;
+        double area = semiperimetro * (semiperimetro - lado1) * (semiperimetro - lado2) * (semiperimetro - lado3);
+        double resultado = (double) Math.sqrt(area);
+        return resultado;
+
+    }
 }

@@ -1,16 +1,15 @@
-
 package No_Paralelogramos;
 
-import Figura.Figureable;
-public class Trapecio implements Figureable{
-    private double lado1;
-    private double lado2;
-    private double lado3;
-    private double lado4;
-    
+import Figuras.Cuadrilatero;
+import Figuras.Figureable;
+
+public class Trapecio extends Cuadrilatero implements Figureable {
+
+
+
     @Override
     public double calcularPerimetro() {
-        double  perimetro = (lado1 + lado2 + lado3 + lado4);
+        double perimetro = (lado1 + lado2 + lado3 + lado4);
         return perimetro;
     }
 
@@ -18,5 +17,5 @@ public class Trapecio implements Figureable{
     public double calcularArea() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
