@@ -5,6 +5,7 @@ import Mensaje_inicial.Mensaje_de_inicio;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import Formulas.Distancia;
 
 public class Desafio_profeesque {
 
@@ -69,13 +70,16 @@ public class Desafio_profeesque {
                 //recordar que listadenombre.get(numero de indice); es para mostrar el valor de ese indice
 
                 for (int i = 0; i < valoresX.size(); i++) {//for de prueba
+                    
+                    
                     System.out.println("Valor de X de coordenada Nº" + (i + 1) + ":" + valoresX.get(i));
                 }
-
+                
                 for (int i = 0; i < valoresY.size(); i++) {//for de prueba
                     System.out.println("Valor de Y de coordeada Nº" + (i + 1) + ":" + valoresY.get(i));
                 }
-
+                
+                           
                 System.out.println("para salir solo presione el numero 2");
                 System.out.println("1.-  nueva figura");
                 System.out.println("2.- salir");
