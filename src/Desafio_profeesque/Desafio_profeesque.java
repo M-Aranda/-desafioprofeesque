@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import Formulas.Distancia;
 import Triangulos.Equilatero;
+import Triangulos.Escaleno;
+import Triangulos.Isosceles;
+import No_Paralelogramos.Romboide;
+import No_Paralelogramos.Trapecio;
+import No_Paralelogramos.Trapezoide;
+import Paralelogramos.Cuadrado;
+import Paralelogramos.Rectangulo;
+import Paralelogramos.Rombo;
 
 public class Desafio_profeesque {
 
@@ -77,18 +85,33 @@ public class Desafio_profeesque {
 
                     Distancia ac = new Distancia(valoresX.get(2), valoresX.get(0), valoresY.get(2), valoresY.get(0));
                     double lado3 = ac.calc_distancia();
+                    
+                    System.out.println("Valores de lados: ");
+                    System.out.println(lado1);
+                    System.out.println(lado2);
+                    System.out.println(lado3);
 
                     if (lado1 == lado2 && lado2 == lado3 && lado3 == lado1) {
                         System.out.println("Las coordenadas ingresadas forman un triangulo equilatero.");
-                        Equilatero te = new Equilatero(lado1, lado2, lado3);
-                        System.out.println("Perimetro: " + te.calcularPerimetro() + "");
-                        System.out.println("Area: " + te.calcularArea());
+                        Equilatero teq = new Equilatero(lado1, lado2, lado3);
+                        System.out.println("Perimetro: " + teq.calcularPerimetro() + "");
+                        System.out.println("Area: " + teq.calcularArea());
+
+                    } else if (lado1 != lado2 && lado2 != lado3 && lado3 != lado1) {
+                        System.out.println("Las coordenadas ingresadas forman un triangulo escaleno.");
+                        Escaleno tes = new Escaleno(lado1, lado2, lado3);
+                        System.out.println("Perimetro: " + tes.calcularPerimetro());
+                        System.out.println("Area: " + tes.calcularArea());
+
+                    } else if ((lado1 == lado2 && lado1 != lado3 && lado3 != lado2) || (lado2 == lado3 && lado1 != lado2 && lado1 != lado3) || (lado3 == lado1 && lado2 != lado3 && lado2 != lado1)) {
+                        System.out.println("Las coordenadas ingresadas forman un triangulo isosceles.");
+                        Isosceles tis=new Isosceles(lado1,lado2,lado3);
+                        System.out.println("Perimetro: "+tis.calcularPerimetro());
+                        System.out.println("Area: "+tis.calcularArea());
 
                     }
-
-                    System.out.println("Las coordenadas ingresadas forman un triangulo.");
-                    System.out.println("Perimetro: ");
-                    System.out.println("Area: ");
+                    
+                   
 
                 } else if (contador == 4) {
 
@@ -109,6 +132,31 @@ public class Desafio_profeesque {
                     System.out.println("Area: ");
 
                 }
+
+                int valorXdelVectordeTraslacion = 0;
+                int valorYdelVectordeTraslacion = 0;
+
+                while (true) {
+                    try {
+                        System.out.println("Ingrese vector de traslacion:");
+                        String veT = input.nextLine();
+                        String[] valorVeT = veT.split(",");
+                        String vX = valorVeT[0];
+                        String vY = valorVeT[1];
+                        valorXdelVectordeTraslacion = Integer.parseInt(vX);
+                        valorYdelVectordeTraslacion = Integer.parseInt(vY);
+
+                        break;// no estoy seguro de que esto vuelva a pedir el vector si hay un error
+                    } catch (Exception e) {
+                        System.out.println("Debe inngresar un vector valido");
+                    }
+
+                }
+                System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
+                System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + valoresY.get(0) + valorYdelVectordeTraslacion);
+                System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + valoresY.get(1) + valorYdelVectordeTraslacion);
+                System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + valoresY.get(2) + valorYdelVectordeTraslacion);
+                System.out.println("Punto 4: " + (valoresX.get(3) + valorXdelVectordeTraslacion) + "," + valoresY.get(3) + valorYdelVectordeTraslacion);
 
 //                System.out.println(valoresX.get(0));//sout de prueba
 //                //recordar que listadenombre.get(numero de indice); es para mostrar el valor de ese indice
