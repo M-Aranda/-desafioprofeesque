@@ -31,7 +31,7 @@ public class Desafio_profeesque {
                 int eleccion;
                 while (true) {
                     try {
-                        System.out.println("3 o 4 puntos?");
+                        System.out.println("3 o 4 puntos?: ");
                         eleccion = Integer.parseInt(respuesta.nextLine());
 
                         if (eleccion == 3 || eleccion == 4) {
@@ -56,7 +56,7 @@ public class Desafio_profeesque {
                 int contador = 0;
                 while (true) {
                     try {
-                        System.out.print("Ingrese coordenada Nº" + (contador + 1) + ":");
+                        System.out.print("Ingrese coordenada Nº" + (contador + 1) + ": ");
                         String a = input.nextLine();
                         String[] valores = a.split(",");
                         String xs = valores[0];
@@ -93,7 +93,7 @@ public class Desafio_profeesque {
 
                     if (lado1 == lado2 && lado2 == lado3 && lado3 == lado1) {
                         System.out.println("Las coordenadas ingresadas forman un triangulo equilatero.");
-                        Equilatero teq = new Equilatero(lado1, lado2, lado3);
+                        Equilatero teq=  new Equilatero(lado1, lado2, lado3);
                         System.out.println("Perimetro: " + teq.calcularPerimetro() + "");
                         System.out.println("Area: " + teq.calcularArea());
 
@@ -117,7 +117,7 @@ public class Desafio_profeesque {
 
                     Distancia ab = new Distancia(valoresX.get(1), valoresX.get(0), valoresY.get(1), valoresY.get(0));
                     double lado1 = ab.calc_distancia();
-
+ 
                     Distancia bc = new Distancia(valoresX.get(2), valoresX.get(1), valoresY.get(2), valoresY.get(1));
                     double lado2 = bc.calc_distancia();
 
@@ -126,11 +126,30 @@ public class Desafio_profeesque {
 
                     Distancia ad = new Distancia(valoresX.get(3), valoresX.get(0), valoresY.get(3), valoresY.get(0));
                     double lado4 = ad.calc_distancia();
-
-                    System.out.println(" Las coordenadas ingresadas forman un cuadrilatero.");
-                    System.out.println("Perimetro: ");
-                    System.out.println("Area: ");
-
+                    
+                    System.out.println("Valores de lados: ");
+                    System.out.println(lado1);
+                    System.out.println(lado2);
+                    System.out.println(lado3);
+                    System.out.println(lado4);
+                    
+                    if(lado1 == lado2 && lado2 == lado3 && lado3 == lado4) {
+                        System.out.println("Las coordenadas ingresadas forman un cuadrado");
+                        Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);
+                        System.out.println("Perimetro: "+cuad.calcularPerimetro());
+                        System.out.println("Area: "+cuad.calcularArea());
+                        
+                    }else if(lado1 == lado3 && lado2 == lado4){
+                        System.out.println("Las coordenadas ingresadas forman un rectanglo");
+                        Rectangulo rect = new Rectangulo(lado1, lado2, lado3, lado4);
+                        System.out.println("Perimetro: "+rect.calcularPerimetro());
+                        System.out.println("Area: "+rect.calcularArea());
+                        
+                }//else if(aqui va la condicion del rombo){
+//                System.out.println("Las coordenadas ingresadas forman un rectanglo");
+//                        Rombo rombo = new Rombo(lado1, lado2, lado3, lado4);
+//                        System.out.println("Perimetro: "+rombo.calcularPerimetro());
+//                        System.out.println("Area: "+rombo.calcularArea());
                 }
 
                 int valorXdelVectordeTraslacion = 0;
