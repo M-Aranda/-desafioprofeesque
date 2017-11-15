@@ -6,6 +6,10 @@ import Figuras.Triangulo;
 
 public class Isosceles extends Triangulo implements Figureable{
 
+    public Isosceles() {
+    }
+
+    public Isosceles(double lado1, double lado2, double lado3){}
 
     @Override
     public double calcularPerimetro() {

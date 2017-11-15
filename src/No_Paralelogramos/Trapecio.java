@@ -5,7 +5,11 @@ import Figuras.Figureable;
 
 public class Trapecio extends Cuadrilatero implements Figureable {
 
+    public Trapecio() {
+    }
 
+    public Trapecio(double lado1, double lado2, double lado3, double lado4) {
+    }
 
     @Override
     public double calcularPerimetro() {

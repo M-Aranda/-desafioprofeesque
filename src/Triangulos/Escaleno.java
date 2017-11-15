@@ -5,7 +5,10 @@ import Figuras.Triangulo;
 
 public class Escaleno extends Triangulo implements Figureable {
 
+    public Escaleno() {
+    }
 
+public Escaleno(double lado1, double lado2, double lado3){}
 
     @Override
     public double calcularPerimetro() {

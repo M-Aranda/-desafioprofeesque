@@ -14,7 +14,10 @@ import Figuras.Triangulo;
  */
 public class Equilatero extends Triangulo implements Figureable {
 
+    public Equilatero() {
+    }
 
+public Equilatero(double lado1, double lado2, double lado3){}
 
     @Override
     public double calcularPerimetro() {

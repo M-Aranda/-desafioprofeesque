@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 import Formulas.Distancia;
+import Triangulos.Equilatero;
 
 public class Desafio_profeesque {
 
@@ -13,6 +14,7 @@ public class Desafio_profeesque {
 
         Scanner respuesta = new Scanner(System.in);
         int op_salir = 0;
+        int cantFiguras = 0;
         while (true) {
             if (op_salir == 2) {
                 break;
@@ -66,20 +68,60 @@ public class Desafio_profeesque {
                     }
                 }
 
-                System.out.println(valoresX.get(0));//sout de prueba
-                //recordar que listadenombre.get(numero de indice); es para mostrar el valor de ese indice
+                if (contador == 3) {
+                    Distancia ab = new Distancia(valoresX.get(1), valoresX.get(0), valoresY.get(1), valoresY.get(0));
+                    double lado1 = ab.calc_distancia();
 
-                for (int i = 0; i < valoresX.size(); i++) {//for de prueba
-                    
-                    
-                    System.out.println("Valor de X de coordenada Nº" + (i + 1) + ":" + valoresX.get(i));
+                    Distancia bc = new Distancia(valoresX.get(2), valoresX.get(1), valoresY.get(2), valoresY.get(1));
+                    double lado2 = bc.calc_distancia();
+
+                    Distancia ac = new Distancia(valoresX.get(2), valoresX.get(0), valoresY.get(2), valoresY.get(0));
+                    double lado3 = ac.calc_distancia();
+
+                    if (lado1 == lado2 && lado2 == lado3 && lado3 == lado1) {
+                        System.out.println("Las coordenadas ingresadas forman un triangulo equilatero.");
+                        Equilatero te = new Equilatero(lado1, lado2, lado3);
+                        System.out.println("Perimetro: " + te.calcularPerimetro() + "");
+                        System.out.println("Area: " + te.calcularArea());
+
+                    }
+
+                    System.out.println("Las coordenadas ingresadas forman un triangulo.");
+                    System.out.println("Perimetro: ");
+                    System.out.println("Area: ");
+
+                } else if (contador == 4) {
+
+                    Distancia ab = new Distancia(valoresX.get(1), valoresX.get(0), valoresY.get(1), valoresY.get(0));
+                    double lado1 = ab.calc_distancia();
+
+                    Distancia bc = new Distancia(valoresX.get(2), valoresX.get(1), valoresY.get(2), valoresY.get(1));
+                    double lado2 = bc.calc_distancia();
+
+                    Distancia cd = new Distancia(valoresX.get(3), valoresX.get(2), valoresY.get(3), valoresY.get(2));
+                    double lado3 = cd.calc_distancia();
+
+                    Distancia ad = new Distancia(valoresX.get(3), valoresX.get(0), valoresY.get(3), valoresY.get(0));
+                    double lado4 = ad.calc_distancia();
+
+                    System.out.println(" Las coordenadas ingresadas forman un cuadrilatero.");
+                    System.out.println("Perimetro: ");
+                    System.out.println("Area: ");
+
                 }
-                
-                for (int i = 0; i < valoresY.size(); i++) {//for de prueba
-                    System.out.println("Valor de Y de coordeada Nº" + (i + 1) + ":" + valoresY.get(i));
-                }
-                
-                           
+
+//                System.out.println(valoresX.get(0));//sout de prueba
+//                //recordar que listadenombre.get(numero de indice); es para mostrar el valor de ese indice
+//
+//                for (int i = 0; i < valoresX.size(); i++) {//for de prueba
+//
+//                    System.out.println("Valor de X de coordenada Nº" + (i + 1) + ":" + valoresX.get(i));
+//                }
+//
+//                for (int i = 0; i < valoresY.size(); i++) {//for de prueba
+//                    System.out.println("Valor de Y de coordeada Nº" + (i + 1) + ":" + valoresY.get(i));
+//                }
+                cantFiguras++;
                 System.out.println("para salir solo presione el numero 2");
                 System.out.println("1.-  nueva figura");
                 System.out.println("2.- salir");
@@ -88,6 +130,9 @@ public class Desafio_profeesque {
             }
 
         }
+        System.out.println("Estadisticas:");
+        System.out.println("-------------");
+        System.out.println("Se crearon " + cantFiguras + " figuras");//se podria cambair mensaje dependiendo de si son una o varias
     }
 
 }

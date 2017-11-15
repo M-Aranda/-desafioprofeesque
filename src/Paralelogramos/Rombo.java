@@ -7,6 +7,10 @@ import Figuras.Figureable;
 
 public class Rombo extends Cuadrilatero implements Figureable{
 
+    public Rombo() {
+    }
+
+    public Rombo(double lado1,double lado2, double lado3,double lado4){}
 
     @Override
     public double calcularPerimetro() {
