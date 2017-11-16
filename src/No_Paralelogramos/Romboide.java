@@ -2,6 +2,7 @@ package No_Paralelogramos;
 
 import Figuras.Figureable;
 import Figuras.Cuadrilatero;
+import java.util.Scanner;
 
 public class Romboide extends Cuadrilatero implements Figureable {
 
@@ -19,7 +20,18 @@ public class Romboide extends Cuadrilatero implements Figureable {
 
     @Override
     public double calcularArea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        double base, altura, area;
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Ingrese la base del romboide: ");
+        base = Double.parseDouble(scan.nextLine());
+        
+        System.out.println("Ingrese la altura del romboide: ");
+        altura = Double.parseDouble(scan.nextLine());
+        
+        area = (base * altura);
+        return area;
     }
 
 }
