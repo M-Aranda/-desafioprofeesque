@@ -37,7 +37,9 @@ public class Desafio_profeesque {
                 int eleccion;
                 while (true) {
                     try {
-                        System.out.println("3 o 4 puntos?: ");
+                        System.out.println("**************************");
+                        System.out.println("     3 o 4 puntos?: ");
+                        System.out.println("**************************");
                         eleccion = Integer.parseInt(respuesta.nextLine());
 
                         if (eleccion == 3 || eleccion == 4) {
@@ -48,8 +50,10 @@ public class Desafio_profeesque {
                         System.out.println("Debe responder 3 o 4");
                     }
                 }
+                System.out.println("----------------------------------");
                 Mensaje_de_inicio mensaje = new Mensaje_de_inicio();
                 mensaje.mostrarMensajeDeInicio();
+                System.out.println("----------------------------------");
 
                 Scanner input = new Scanner(System.in);
 
@@ -62,7 +66,9 @@ public class Desafio_profeesque {
                 int contador = 0;
                 while (true) {
                     try {
-                        System.out.print("Ingrese coordenada Nº" + (contador + 1) + ": ");
+                        System.out.println("**************************");
+                        System.out.println("Ingrese coordenada Nº" + (contador + 1) + ": ");
+                        System.out.println("**************************");
                         String a = input.nextLine();
                         String[] valores = a.split(",");
                         String xs = valores[0];
@@ -142,7 +148,9 @@ public class Desafio_profeesque {
 
                 while (true) {
                     try {
+                        System.out.println("**************************");
                         System.out.println("Ingrese vector de traslacion:");
+                        System.out.println("**************************");
                         String veT = input.nextLine();
                         String[] valorVeT = veT.split(",");
                         String vX = valorVeT[0];
@@ -159,13 +167,17 @@ public class Desafio_profeesque {
 
                 // el siguiente if y else if sirve para mostrar los resultados de la traslacion
                 if (eleccion == 3) {
+                    System.out.println("*********************************************************************");
                     System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
+                    System.out.println("*********************************************************************");
                     System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
                     System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
                     System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
 
                 } else if (eleccion == 4) {
+                    System.out.println("*********************************************************************");
                     System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
+                    System.out.println("*********************************************************************");
                     System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
                     System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
                     System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
@@ -206,8 +218,9 @@ public class Desafio_profeesque {
 
         }
         System.out.println("");//para dejar una linea vacia
+        System.out.println("*******************");
         System.out.println("Estadisticas:");
-        System.out.println("-------------");
+        System.out.println("*******************");
         System.out.println("");//para dejar una linea vacia
 
         if (cantFiguras == 1) {
