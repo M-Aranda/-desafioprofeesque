@@ -8,7 +8,7 @@ import Triangulos.*;
 import No_Paralelogramos.*;
 import Paralelogramos.*;
 
-//import java.util.Scanner; mejor usar un garbage collector, muchos imports
+//import java.util.Scanner; 
 //import java.util.ArrayList;
 //import java.util.List;
 //import Formulas.Distancia;

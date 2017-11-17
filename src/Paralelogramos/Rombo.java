@@ -1,9 +1,9 @@
 package Paralelogramos;
 
 import Figuras.Cuadrilatero;
-import Figuras.Figureable;
 
-public class Rombo extends Cuadrilatero implements Figureable {
+
+public class Rombo extends Cuadrilatero {
 
     public Rombo() {
     }
@@ -12,33 +12,15 @@ public class Rombo extends Cuadrilatero implements Figureable {
         super(lado1, lado2, lado3, lado4);
     }
 
-    public double getLado1() {
-        return lado1;
-    }
 
-    public double getLado2() {
-        return lado2;
-    }
 
-    public double getLado3() {
-        return lado3;
-    }
-
-    public double getLado4() {
-        return lado4;
-    }
-
-    @Override
-    public double calcularPerimetro() {
-        double perimetro = (getLado1() * 4);
-        return perimetro;
-    }
 
     @Override
     public double calcularArea() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     public void mostrarInformacion() {
         System.out.println("Las coordenadas ingresadas forman un cuadrilatero rombo");
         System.out.println("Perimetro: " + calcularPerimetro());

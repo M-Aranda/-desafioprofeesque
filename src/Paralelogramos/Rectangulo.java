@@ -1,9 +1,9 @@
 package Paralelogramos;
 
 import Figuras.Cuadrilatero;
-import Figuras.Figureable;
 
-public class Rectangulo extends Cuadrilatero implements Figureable {
+
+public class Rectangulo extends Cuadrilatero {
 
     public Rectangulo() {
     }
@@ -12,28 +12,7 @@ public class Rectangulo extends Cuadrilatero implements Figureable {
         super(lado1, lado2, lado3, lado4);
     }
 
-    public double getLado1() {
-        return lado1;
-    }
 
-    public double getLado2() {
-        return lado2;
-    }
-
-    public double getLado3() {
-        return lado3;
-    }
-
-    public double getLado4() {
-        return lado4;
-    }
-
-    @Override
-    public double calcularPerimetro() {
-        double perimetro = (getLado1() + getLado2() + getLado3() + getLado4());
-        return perimetro;
-
-    }
 
     @Override
     public double calcularArea() {
@@ -41,7 +20,8 @@ public class Rectangulo extends Cuadrilatero implements Figureable {
         return area;
 
     }
-
+    
+    @Override
     public void mostrarInformacion() {
         System.out.println("Las coordenadas ingresadas forman un cuadrilatero rectangulo");
         System.out.println("Perimetro: " + calcularPerimetro());
