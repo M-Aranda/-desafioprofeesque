@@ -14,20 +14,6 @@ public class Romboide extends Cuadrilatero {
     }
 
 
-    @Override
-    public double calcularArea() {
-        
-        double base, altura, area;
-        Scanner scan = new Scanner(System.in);
-        
-        System.out.println("Ingrese la base del romboide: ");
-        base = Double.parseDouble(scan.nextLine());
-        
-        System.out.println("Ingrese la altura del romboide: ");
-        altura = Double.parseDouble(scan.nextLine());
-        
-        area = (base * altura);
-        return area;
-    }
+
 
 }
