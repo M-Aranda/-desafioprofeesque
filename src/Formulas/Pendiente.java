@@ -40,6 +40,6 @@ public class Pendiente {
         
     }
     
-    
+    // Es posible que arroje el error java.lang.ArithmeticException si se inteta dividir por 0
     
 }

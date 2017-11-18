@@ -50,7 +50,7 @@ public class Cuadrilatero implements Figureable {
 
     @Override
     public void mostrarInformacion() {
-        System.out.println("Las coordenadas ingresadas forman un cuadrilatero...");
+        System.out.println("Las coordenadas ingresadas forman un cuadrilatero "+getClass().getSimpleName().toLowerCase());//muestra el nombre de la clase
         System.out.println("Perimetro: " + calcularPerimetro());
         System.out.println("Area: " + calcularArea());
 

@@ -53,7 +53,7 @@ public class Triangulo implements Figureable {
 
     @Override
     public void mostrarInformacion() {
-        System.out.println("Las coordenadas ingresadas forman un triangulo"+this.getClass());//muestra el nombre entero de la clase
+        System.out.println("Las coordenadas ingresadas forman un triangulo "+getClass().getSimpleName().toLowerCase());//muestra el nombre de la clase se
         System.out.println("Perimetro: " + calcularPerimetro());
         System.out.println("Area: " + calcularArea());
 

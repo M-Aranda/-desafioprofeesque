@@ -8,6 +8,7 @@ import Triangulos.*;
 import No_Paralelogramos.*;
 import Paralelogramos.*;
 
+//imports utilizados:
 //import java.util.Scanner; 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -21,7 +22,6 @@ import Paralelogramos.*;
 //import Paralelogramos.Cuadrado;
 //import Paralelogramos.Rectangulo;
 //import Paralelogramos.Rombo;
-
 public class Desafio_profeesque {
 
     public static void main(String[] args) {
@@ -65,27 +65,61 @@ public class Desafio_profeesque {
 
                 int contador = 0;
                 while (true) {
-                    try {
-                        System.out.println("**************************");
-                        System.out.println("Ingrese coordenada Nº" + (contador + 1) + ": ");
-                        System.out.println("**************************");
-                        String a = input.nextLine();
-                        String[] valores = a.split(",");
-                        String xs = valores[0];
-                        String ys = valores[1];
-                        x = Integer.parseInt(xs);
-                        y = Integer.parseInt(ys);
+                    while (true) {
+                        try {
+                            System.out.println("**************************");
+                            System.out.println("Ingrese coordenada Nº" + (contador + 1) + ": ");
+                            System.out.println("**************************");
+                            String a = input.nextLine();
+                            String[] valores = a.split(",");
+                            String xs = valores[0];
+                            String ys = valores[1];
+                            x = Integer.parseInt(xs);
+                            y = Integer.parseInt(ys);
 
-                        valoresX.add(x);
-                        valoresY.add(y);
-                        contador++;
+                            valoresX.add(x);
+                            valoresY.add(y);
+                            contador++;
 
-                    } catch (Exception e) {
-                        System.out.println("Debe ingresar una coordenada valida");
+                        } catch (Exception e) {
+                            System.out.println("Debe ingresar una coordenada valida");
+                        }
+                        if (eleccion == contador) {
+                            break;
+                        }
                     }
-                    if (eleccion == contador) {
+                    if (eleccion == 3) {//control de flujo para determinar si los puntos del triangulo forman una recta
+                        Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
+                        double pend_entre_p1_p2 = p_1_2.calcularPendiente();
+                        Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
+                        double pend_entre_p2_p3 = p_2_3.calcularPendiente();
+
+                        if (pend_entre_p1_p2 == pend_entre_p2_p3) {
+                            System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
+                            valoresX.clear();
+                            valoresY.clear();
+                            contador = 0;
+                        } else if (pend_entre_p1_p2 != pend_entre_p2_p3 && contador == 3) {
+                            break;
+                        }
+                    }
+                    if (eleccion == 4) {//control de flujo para determinar si los puntos del cuadrilatero forman una recta
+                        Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
+                        double pend_entre_p1_p2 = p_1_2.calcularPendiente();
+                        Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
+                        double pend_entre_p2_p3 = p_2_3.calcularPendiente();
+                        Pendiente p_3_4 = new Pendiente(valoresY.get(3), valoresY.get(2), valoresX.get(3), valoresX.get(2));
+                        double pend_entre_p3_p4 = p_3_4.calcularPendiente();
+                        if (pend_entre_p1_p2 == pend_entre_p2_p3 && pend_entre_p2_p3 == pend_entre_p3_p4) {
+                            System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
+                            valoresX.clear();
+                            valoresY.clear();
+                            contador = 0;
+                        }else if((pend_entre_p1_p2 != pend_entre_p2_p3 || pend_entre_p2_p3 != pend_entre_p3_p4 || pend_entre_p3_p4!=pend_entre_p1_p2) && contador==4){
                         break;
                     }
+                    }
+
                 }
 
                 if (contador == 3) {
@@ -125,8 +159,6 @@ public class Desafio_profeesque {
 
                     Distancia ad = new Distancia(valoresX.get(3), valoresX.get(0), valoresY.get(3), valoresY.get(0));
                     double lado4 = ad.calc_distancia();
-
-
 
                     if (lado1 == lado2 && lado2 == lado3 && lado3 == lado4) {
                         Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);
@@ -205,7 +237,7 @@ public class Desafio_profeesque {
                         System.out.println("2.- Salir");
                         System.out.print("Opción: ");
                         op_salir = Integer.parseInt(respuesta.nextLine());
-                        if(op_salir==1 || op_salir==2){
+                        if (op_salir == 1 || op_salir == 2) {
                             break;
                         }
 
