@@ -2,7 +2,7 @@ package No_Paralelogramos;
 
 
 import Figuras.Cuadrilatero;
-import java.util.Scanner;
+
 
 public class Romboide extends Cuadrilatero {
 
@@ -13,7 +13,10 @@ public class Romboide extends Cuadrilatero {
         super(lado1, lado2, lado3, lado4);
     }
 
-
+@Override
+public double calcularArea(){
+return 0.00;
+}
 
 
 }

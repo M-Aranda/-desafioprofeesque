@@ -87,37 +87,49 @@ public class Desafio_profeesque {
                         if (eleccion == contador) {
                             break;
                         }
-                    }
-                    if (eleccion == 3) {//control de flujo para determinar si los puntos del triangulo forman una recta
-                        Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
-                        double pend_entre_p1_p2 = p_1_2.calcularPendiente();
-                        Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
-                        double pend_entre_p2_p3 = p_2_3.calcularPendiente();
+                    }//java.lang.ArithmeticException
+                    try {
+                        if (eleccion == 3) {//control de flujo para determinar si los puntos del triangulo forman una recta
+                            Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
+                            double pend_entre_p1_p2 = p_1_2.calcularPendiente();
+                            Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
+                            double pend_entre_p2_p3 = p_2_3.calcularPendiente();
 
-                        if (pend_entre_p1_p2 == pend_entre_p2_p3) {
-                            System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
-                            valoresX.clear();
-                            valoresY.clear();
-                            contador = 0;
-                        } else if (pend_entre_p1_p2 != pend_entre_p2_p3 && contador == 3) {
-                            break;
+                            if (pend_entre_p1_p2 == pend_entre_p2_p3) {
+                                System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
+                                valoresX.clear();
+                                valoresY.clear();
+                                contador = 0;
+                            } else if (pend_entre_p1_p2 != pend_entre_p2_p3 && contador == 3) {
+                                break;
+                            }
                         }
+
+                    } catch (java.lang.ArithmeticException exc) {
+                        System.out.println("El calculo de una de las pendientes no se pudo realizar (se intento dividir por cero)");
+                        break;
                     }
-                    if (eleccion == 4) {//control de flujo para determinar si los puntos del cuadrilatero forman una recta
-                        Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
-                        double pend_entre_p1_p2 = p_1_2.calcularPendiente();
-                        Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
-                        double pend_entre_p2_p3 = p_2_3.calcularPendiente();
-                        Pendiente p_3_4 = new Pendiente(valoresY.get(3), valoresY.get(2), valoresX.get(3), valoresX.get(2));
-                        double pend_entre_p3_p4 = p_3_4.calcularPendiente();
-                        if (pend_entre_p1_p2 == pend_entre_p2_p3 && pend_entre_p2_p3 == pend_entre_p3_p4) {
-                            System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
-                            valoresX.clear();
-                            valoresY.clear();
-                            contador = 0;
-                        } else if ((pend_entre_p1_p2 != pend_entre_p2_p3 || pend_entre_p2_p3 != pend_entre_p3_p4 || pend_entre_p3_p4 != pend_entre_p1_p2) && contador == 4) {
-                            break;
+                    try {
+                        if (eleccion == 4) {//control de flujo para determinar si los puntos del cuadrilatero forman una recta
+                            Pendiente p_1_2 = new Pendiente(valoresY.get(1), valoresY.get(0), valoresX.get(1), valoresX.get(0));
+                            double pend_entre_p1_p2 = p_1_2.calcularPendiente();
+                            Pendiente p_2_3 = new Pendiente(valoresY.get(2), valoresY.get(1), valoresX.get(2), valoresX.get(1));
+                            double pend_entre_p2_p3 = p_2_3.calcularPendiente();
+                            Pendiente p_3_4 = new Pendiente(valoresY.get(3), valoresY.get(2), valoresX.get(3), valoresX.get(2));
+                            double pend_entre_p3_p4 = p_3_4.calcularPendiente();
+                            if (pend_entre_p1_p2 == pend_entre_p2_p3 && pend_entre_p2_p3 == pend_entre_p3_p4) {
+                                System.out.println("Las coordenadas ingresadas forman una recta, por favor ingrese coordenadas nuevas.");
+                                valoresX.clear();
+                                valoresY.clear();
+                                contador = 0;
+                            } else {// if (pend_entre_p1_p2 != pend_entre_p2_p3 || pend_entre_p2_p3 != pend_entre_p3_p4 || pend_entre_p3_p4 != pend_entre_p1_p2) && contador == 4) <-- porcion de codigo removida
+                                break;
+                            }
                         }
+
+                    } catch (java.lang.ArithmeticException exc) {
+                        System.out.println("El calculo de una de las pendientes no se pudo realizar (se intento dividir por cero)");
+                        break;
                     }
 
                 }
@@ -131,7 +143,7 @@ public class Desafio_profeesque {
 
                     Distancia ac = new Distancia(valoresX.get(2), valoresX.get(0), valoresY.get(2), valoresY.get(0));
                     double lado3 = ac.calc_distancia();
-                    
+
                     //control de flujo para crear triangulos
                     if (lado1 == lado2 && lado2 == lado3 && lado3 == lado1) {
                         Equilatero teq = new Equilatero(lado1, lado2, lado3);
@@ -160,77 +172,75 @@ public class Desafio_profeesque {
 
                     Distancia ad = new Distancia(valoresX.get(3), valoresX.get(0), valoresY.get(3), valoresY.get(0));
                     double lado4 = ad.calc_distancia();
-                    
+
                     //los siguientes if pueden crear paralelogramos
-                    if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4)&& (valoresX.get(0)==valoresX.get(1)&& valoresX.get(2)==valoresX.get(3)&& valoresY.get(0)==valoresY.get(3) && valoresY.get(1)==valoresY.get(2))) {
+                    if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4) && (valoresX.get(0) == valoresX.get(1) && valoresX.get(2) == valoresX.get(3) && valoresY.get(0) == valoresY.get(3) && valoresY.get(1) == valoresY.get(2))) {
                         Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);//crea cuadrado
                         cuad.mostrarInformacion();
 
-                    } else if ((lado1 == lado3 && lado2 == lado4)&&(valoresX.get(0)==valoresX.get(1)&& valoresX.get(2)==valoresX.get(3)&& valoresY.get(0)==valoresY.get(3) && valoresY.get(1)==valoresY.get(2))) {
+                    } else if ((lado1 == lado3 && lado2 == lado4) && (valoresX.get(0) == valoresX.get(1) && valoresX.get(2) == valoresX.get(3) && valoresY.get(0) == valoresY.get(3) && valoresY.get(1) == valoresY.get(2))) {
                         Rectangulo rect = new Rectangulo(lado1, lado2, lado3, lado4);//crea rectangulo
                         rect.mostrarInformacion();
-                    }else if((lado1 == lado2 && lado2 == lado3 && lado3 == lado4)&&(valoresX.get(0)!=valoresX.get(1)&&valoresX.get(2)!=valoresX.get(3) && valoresX.get(0)==valoresX.get(2) && valoresY.get(1)==valoresY.get(3))){
-                        Rombo romb=new Rombo(lado1, lado2, lado3, lado4);//crea rombo
+                    } else if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4) && (valoresX.get(0) != valoresX.get(1) && valoresX.get(2) != valoresX.get(3) && valoresX.get(0) == valoresX.get(2) && valoresY.get(1) == valoresY.get(3))) {
+                        Rombo romb = new Rombo(lado1, lado2, lado3, lado4);//crea rombo
                         romb.mostrarInformacion();
-                    }else if((lado1 == lado3 && lado2 == lado4)&&(valoresX.get(0)!=valoresX.get(1)&&valoresX.get(2)!=valoresX.get(3) && valoresX.get(0)==valoresX.get(2) && valoresY.get(1)==valoresY.get(3))){
-                     Romboide romboi=new Romboide(lado1, lado2, lado3, lado4); //crea romboide
-                     romboi.mostrarInformacion();
-                    
-                        
+                    } else if ((lado1 == lado3 && lado2 == lado4) && (valoresX.get(0) != valoresX.get(1) && valoresX.get(2) != valoresX.get(3) && valoresX.get(0) == valoresX.get(2) && valoresY.get(1) == valoresY.get(3))) {
+                        Romboide romboi = new Romboide(lado1, lado2, lado3, lado4); //crea romboide
+                        romboi.mostrarInformacion();
+
                         //los 2 if else que vienen crean no parapelolgramos
-                    }else if((lado1==lado3 && lado2!=lado4) || (lado1!=lado3 && lado2==lado4)){
-                    Trapecio trap=new Trapecio(lado1, lado2, lado3, lado4);
-                    trap.mostrarInformacion();//crea trapecio
+                    } else if ((lado1 == lado3 && lado2 != lado4) || (lado1 != lado3 && lado2 == lado4)) {
+                        Trapecio trap = new Trapecio(lado1, lado2, lado3, lado4);
+                        trap.mostrarInformacion();//crea trapecio
                     } else if (lado1 != lado2 && lado1 != lado3 && lado1 != lado4 && lado2 != lado3 && lado2 != lado4 && lado3 != lado4) {
-                    Trapezoide trapez= new Trapezoide(lado1, lado2, lado3, lado4);//crea trapezoide
-                    trapez.mostrarInformacion();
-                    
-                    }
-
-               
-                    }
-
-                    int valorXdelVectordeTraslacion = 0;
-                    int valorYdelVectordeTraslacion = 0;
-
-                    while (true) {
-                        try {
-                            System.out.println("**************************");
-                            System.out.println("Ingrese vector de traslacion:");
-                            System.out.println("**************************");
-                            String veT = input.nextLine();
-                            String[] valorVeT = veT.split(",");
-                            String vX = valorVeT[0];
-                            String vY = valorVeT[1];
-                            valorXdelVectordeTraslacion = Integer.parseInt(vX);
-                            valorYdelVectordeTraslacion = Integer.parseInt(vY);
-
-                            break;// vuelve a pedir vector de traslacion si hay error, si no lo hay se sale
-                        } catch (Exception e) {
-                            System.out.println("Debe ingresar un vector valido");
-                        }
+                        Trapezoide trapez = new Trapezoide(lado1, lado2, lado3, lado4);//crea trapezoide
+                        trapez.mostrarInformacion();
 
                     }
 
-                    // el siguiente if y else if sirve para mostrar los resultados de la traslacion
-                    if (eleccion == 3) {
-                        System.out.println("*********************************************************************");
-                        System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
-                        System.out.println("*********************************************************************");
-                        System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
-                        System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
-                        System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
+                }
 
-                    } else if (eleccion == 4) {
-                        System.out.println("*********************************************************************");
-                        System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
-                        System.out.println("*********************************************************************");
-                        System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
-                        System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
-                        System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
-                        System.out.println("Punto 4: " + (valoresX.get(3) + valorXdelVectordeTraslacion) + "," + (valoresY.get(3) + valorYdelVectordeTraslacion));
+                int valorXdelVectordeTraslacion = 0;
+                int valorYdelVectordeTraslacion = 0;
 
+                while (true) {
+                    try {
+                        System.out.println("**************************");
+                        System.out.println("Ingrese vector de traslacion:");
+                        System.out.println("**************************");
+                        String veT = input.nextLine();
+                        String[] valorVeT = veT.split(",");
+                        String vX = valorVeT[0];
+                        String vY = valorVeT[1];
+                        valorXdelVectordeTraslacion = Integer.parseInt(vX);
+                        valorYdelVectordeTraslacion = Integer.parseInt(vY);
+
+                        break;// vuelve a pedir vector de traslacion si hay error, si no lo hay se sale
+                    } catch (Exception e) {
+                        System.out.println("Debe ingresar un vector valido");
                     }
+
+                }
+
+                // el siguiente if y else if sirve para mostrar los resultados de la traslacion
+                if (eleccion == 3) {
+                    System.out.println("*********************************************************************");
+                    System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
+                    System.out.println("*********************************************************************");
+                    System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
+                    System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
+                    System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
+
+                } else if (eleccion == 4) {
+                    System.out.println("*********************************************************************");
+                    System.out.println("La figura se ha trasladado exitosamente. Las nuevas coordenadas son: ");
+                    System.out.println("*********************************************************************");
+                    System.out.println("Punto 1: " + (valoresX.get(0) + valorXdelVectordeTraslacion) + "," + (valoresY.get(0) + valorYdelVectordeTraslacion));
+                    System.out.println("Punto 2: " + (valoresX.get(1) + valorXdelVectordeTraslacion) + "," + (valoresY.get(1) + valorYdelVectordeTraslacion));
+                    System.out.println("Punto 3: " + (valoresX.get(2) + valorXdelVectordeTraslacion) + "," + (valoresY.get(2) + valorYdelVectordeTraslacion));
+                    System.out.println("Punto 4: " + (valoresX.get(3) + valorXdelVectordeTraslacion) + "," + (valoresY.get(3) + valorYdelVectordeTraslacion));
+
+                }
 
 //                System.out.println(valoresX.get(0));//sout de prueba
 //                //recordar que listadenombre.get(numero de indice); es para mostrar el valor de ese indice
@@ -243,39 +253,39 @@ public class Desafio_profeesque {
 //                for (int i = 0; i < valoresY.size(); i++) {//for de prueba
 //                    System.out.println("Valor de Y de coordeada Nº" + (i + 1) + ":" + valoresY.get(i));
 //                }
-                    cantFiguras++;
+                cantFiguras++;
 
-                    while (true) {
-                        try {
-                            System.out.println("para salir solo presione el numero 2");
-                            System.out.println("1.- Nueva figura");
-                            System.out.println("2.- Salir");
-                            System.out.print("Opción: ");
-                            op_salir = Integer.parseInt(respuesta.nextLine());
-                            if (op_salir == 1 || op_salir == 2) {
-                                break;
-                            }
-
-                        } catch (Exception e) {
-                            System.out.println("Eso no es valido");
+                while (true) {
+                    try {
+                        System.out.println("para salir solo presione el numero 2");
+                        System.out.println("1.- Nueva figura");
+                        System.out.println("2.- Salir");
+                        System.out.print("Opción: ");
+                        op_salir = Integer.parseInt(respuesta.nextLine());
+                        if (op_salir == 1 || op_salir == 2) {
+                            break;
                         }
-                    }
 
+                    } catch (Exception e) {
+                        System.out.println("Eso no es valido");
+                    }
                 }
 
             }
-            System.out.println("");//para dejar una linea vacia
-            System.out.println("*******************");
-            System.out.println("Estadisticas:");
-            System.out.println("*******************");
-            System.out.println("");//para dejar una linea vacia
 
-            if (cantFiguras == 1) {
-                System.out.println("Se creo " + cantFiguras + " figura");
-            } else {
-                System.out.println("Se crearon " + cantFiguras + " figuras");
-            }
+        }
+        System.out.println("");//para dejar una linea vacia
+        System.out.println("*******************");
+        System.out.println("Estadisticas:");
+        System.out.println("*******************");
+        System.out.println("");//para dejar una linea vacia
 
+        if (cantFiguras == 1) {
+            System.out.println("Se creo " + cantFiguras + " figura");
+        } else {
+            System.out.println("Se crearon " + cantFiguras + " figuras");
         }
 
     }
+
+}

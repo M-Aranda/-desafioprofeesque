@@ -17,7 +17,7 @@ public class Rombo extends Cuadrilatero {
 
     @Override
     public double calcularArea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0.00;
     }
 
 

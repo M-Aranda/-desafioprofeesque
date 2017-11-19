@@ -18,7 +18,7 @@ public class Trapecio extends Cuadrilatero {
 
     @Override
     public double calcularArea() {
-        ArrayList<Double>listaLados=new ArrayList<Double>();
+        ArrayList<Double>listaLados=new ArrayList<>();
         listaLados.add(getLado1());
         listaLados.add(getLado2());
         listaLados.add(getLado3());
