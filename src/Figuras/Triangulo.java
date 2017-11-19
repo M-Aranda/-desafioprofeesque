@@ -45,9 +45,9 @@ public class Triangulo implements Figureable {
     @Override
     public double calcularArea() {
         double semiperimetro = calcularPerimetro() / 2;
-        double area = semiperimetro * (semiperimetro - getLado1()) * (semiperimetro - getLado2()) * (semiperimetro - getLado3());
-        double resultado = (double) Math.sqrt(area);
-        return resultado;
+        double resultado = semiperimetro * (semiperimetro - getLado1()) * (semiperimetro - getLado2()) * (semiperimetro - getLado3());
+        double area = (double) Math.sqrt(resultado);
+        return area;
 
     }
 

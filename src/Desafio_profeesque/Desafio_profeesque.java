@@ -163,23 +163,26 @@ public class Desafio_profeesque {
                     
                     //los siguientes if pueden crear paralelogramos
                     if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4)&& (valoresX.get(0)==valoresX.get(1)&& valoresX.get(2)==valoresX.get(3)&& valoresY.get(0)==valoresY.get(3) && valoresY.get(1)==valoresY.get(2))) {
-                        Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);
+                        Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);//crea cuadrado
                         cuad.mostrarInformacion();
 
-                    } else if (lado1 == lado3 && lado2 == lado4) {
-                        Rectangulo rect = new Rectangulo(lado1, lado2, lado3, lado4);
+                    } else if ((lado1 == lado3 && lado2 == lado4)&&(valoresX.get(0)==valoresX.get(1)&& valoresX.get(2)==valoresX.get(3)&& valoresY.get(0)==valoresY.get(3) && valoresY.get(1)==valoresY.get(2))) {
+                        Rectangulo rect = new Rectangulo(lado1, lado2, lado3, lado4);//crea rectangulo
                         rect.mostrarInformacion();
                     }else if((lado1 == lado2 && lado2 == lado3 && lado3 == lado4)&&(valoresX.get(0)!=valoresX.get(1)&&valoresX.get(2)!=valoresX.get(3) && valoresX.get(0)==valoresX.get(2) && valoresY.get(1)==valoresY.get(3))){
-                        Rombo romb=new Rombo(lado1, lado2, lado3, lado4);
+                        Rombo romb=new Rombo(lado1, lado2, lado3, lado4);//crea rombo
                         romb.mostrarInformacion();
-                        //falta identificacion de romboide
+                    }else if((lado1 == lado3 && lado2 == lado4)&&(valoresX.get(0)!=valoresX.get(1)&&valoresX.get(2)!=valoresX.get(3) && valoresX.get(0)==valoresX.get(2) && valoresY.get(1)==valoresY.get(3))){
+                     Romboide romboi=new Romboide(lado1, lado2, lado3, lado4); //crea romboide
+                     romboi.mostrarInformacion();
+                    
                         
                         //los 2 if else que vienen crean no parapelolgramos
                     }else if((lado1==lado3 && lado2!=lado4) || (lado1!=lado3 && lado2==lado4)){
                     Trapecio trap=new Trapecio(lado1, lado2, lado3, lado4);
-                    trap.mostrarInformacion();
+                    trap.mostrarInformacion();//crea trapecio
                     } else if (lado1 != lado2 && lado1 != lado3 && lado1 != lado4 && lado2 != lado3 && lado2 != lado4 && lado3 != lado4) {
-                    Trapezoide trapez= new Trapezoide(lado1, lado2, lado3, lado4);
+                    Trapezoide trapez= new Trapezoide(lado1, lado2, lado3, lado4);//crea trapezoide
                     trapez.mostrarInformacion();
                     
                     }
