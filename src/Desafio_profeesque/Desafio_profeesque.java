@@ -174,7 +174,7 @@ public class Desafio_profeesque {
                     double lado4 = ad.calc_distancia();
 
                     //los siguientes if pueden crear paralelogramos
-                    if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4) && (valoresX.get(0) == valoresX.get(1) && valoresX.get(2) == valoresX.get(3) && valoresY.get(0) == valoresY.get(3) && valoresY.get(1) == valoresY.get(2))) {
+                    if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4) ) {// le puse esto, pero aun sacandoselo no hace nada cuando las coordenadas debiesen ser un cuadrado (valoresX.get(0) == valoresX.get(1) && valoresX.get(2) == valoresX.get(3) && valoresY.get(0) == valoresY.get(3) && valoresY.get(1) == valoresY.get(2))
                         Cuadrado cuad = new Cuadrado(lado1, lado2, lado3, lado4);//crea cuadrado
                         cuad.mostrarInformacion();
 
@@ -182,9 +182,9 @@ public class Desafio_profeesque {
                         Rectangulo rect = new Rectangulo(lado1, lado2, lado3, lado4);//crea rectangulo
                         rect.mostrarInformacion();
                     } else if ((lado1 == lado2 && lado2 == lado3 && lado3 == lado4) && (valoresX.get(0) != valoresX.get(1) && valoresX.get(2) != valoresX.get(3) && valoresX.get(0) == valoresX.get(2) && valoresY.get(1) == valoresY.get(3))) {
-                        Rombo romb = new Rombo(lado1, lado2, lado3, lado4);//crea rombo
+                        Rombo romb = new Rombo(lado1, lado2, lado3, lado4,valoresX.get(0),valoresX.get(1),valoresX.get(2),valoresX.get(3),valoresY.get(0),valoresY.get(1),valoresY.get(2),valoresY.get(3));//crea rombo
                         romb.mostrarInformacion();
-                    } else if ((lado1 == lado3 && lado2 == lado4) && (valoresX.get(0) != valoresX.get(1) && valoresX.get(2) != valoresX.get(3) && valoresX.get(0) == valoresX.get(2) && valoresY.get(1) == valoresY.get(3))) {
+                    }  else if ((lado1 == lado3 && lado2 == lado4) && (valoresX.get(0) != valoresX.get(1) && valoresX.get(2) != valoresX.get(3) && valoresX.get(0) == valoresX.get(2) && valoresY.get(1) == valoresY.get(3))) {
                         Romboide romboi = new Romboide(lado1, lado2, lado3, lado4); //crea romboide
                         romboi.mostrarInformacion();
 
