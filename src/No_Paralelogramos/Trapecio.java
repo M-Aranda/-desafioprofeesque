@@ -2,6 +2,7 @@ package No_Paralelogramos;
 
 import Figuras.Cuadrilatero;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 
@@ -25,9 +26,9 @@ public class Trapecio extends Cuadrilatero {
         listaLados.add(getLado4());
         
         double baseLarTrapecio=Collections.max(listaLados);
-        listaLados.remove(3);
+        listaLados.remove(Arrays.asList(listaLados).indexOf(Collections.max(listaLados)));
         double baseCorTrapecio=Collections.max(listaLados);
-        listaLados.remove(2);
+        listaLados.remove(Arrays.asList(listaLados).indexOf(Collections.max(listaLados)));
         
         double bT=baseLarTrapecio-baseCorTrapecio;
         double perBT=bT+listaLados.get(0)+listaLados.get(1);

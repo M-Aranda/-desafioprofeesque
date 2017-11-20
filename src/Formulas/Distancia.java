@@ -10,7 +10,7 @@ public class Distancia {
     
     public Distancia(){}
 
-    public Distancia(int x1, int x2, int y1, int y2) {
+    public Distancia(int x2, int x1, int y2, int y1) {
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
